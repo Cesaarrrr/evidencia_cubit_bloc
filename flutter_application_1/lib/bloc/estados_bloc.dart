@@ -1,13 +1,11 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-
-part 'estados_event.dart';
-part 'estados_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'estados_event.dart';
+import 'estados_state.dart';
 
 class EstadosBloc extends Bloc<EstadosEvent, EstadosState> {
-  EstadosBloc() : super(EstadosInitial()) {
-    on<EstadosEvent>((event, emit) {
-      // TODO: implement event handler
+  EstadosBloc() : super(const EstadosState()) {
+    on<IncrementarContador>((event, emit) {
+      emit(state.copyWith(contador: state.contador + 1));
     });
   }
 }

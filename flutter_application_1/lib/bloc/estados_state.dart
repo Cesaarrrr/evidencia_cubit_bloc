@@ -1,10 +1,14 @@
-part of 'estados_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-sealed class EstadosState extends Equatable {
-  const EstadosState();
-  
+class EstadosState extends Equatable {
+  final int contador;
+
+  const EstadosState({this.contador = 0});
+
+  EstadosState copyWith({int? contador}) {
+    return EstadosState(contador: contador ?? this.contador);
+  }
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [contador];
 }
-
-final class EstadosInitial extends EstadosState {}

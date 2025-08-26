@@ -1,8 +1,10 @@
-part of 'estados_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-sealed class EstadosEvent extends Equatable {
+abstract class EstadosEvent extends Equatable {
   const EstadosEvent();
 
   @override
   List<Object> get props => [];
 }
+
+class IncrementarContador extends EstadosEvent {}
