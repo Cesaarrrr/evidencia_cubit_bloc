@@ -1,10 +1,13 @@
-part of 'cubito_cubit.dart';
+abstract class CubitoState {}
 
-sealed class CubitoState extends Equatable {
-  const CubitoState();
+class CubitoLoading extends CubitoState {}
 
-  @override
-  List<Object> get props => [];
+class CubitoLoaded extends CubitoState {
+  final List<dynamic> posts;
+  CubitoLoaded(this.posts);
 }
 
-final class CubitoInitial extends CubitoState {}
+class CubitoError extends CubitoState {
+  final String message;
+  CubitoError(this.message);
+}

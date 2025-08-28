@@ -1,14 +1,13 @@
-import 'package:equatable/equatable.dart';
+abstract class EstadosState {}
 
-class EstadosState extends Equatable {
-  final int contador;
+class EstadosLoading extends EstadosState {}
 
-  const EstadosState({this.contador = 0});
+class EstadosLoaded extends EstadosState {
+  final List<dynamic> usuarios;
+  EstadosLoaded(this.usuarios);
+}
 
-  EstadosState copyWith({int? contador}) {
-    return EstadosState(contador: contador ?? this.contador);
-  }
-
-  @override
-  List<Object> get props => [contador];
+class EstadosError extends EstadosState {
+  final String message;
+  EstadosError(this.message);
 }
