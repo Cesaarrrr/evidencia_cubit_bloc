@@ -11,17 +11,16 @@ class InicialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => CubitoCubit()),
+        BlocProvider(create: (_) => CubitoCubit()..cargarPosts()),
         BlocProvider(create: (_) => EstadosBloc()..add(CargarUsuarios())),
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Demo Cubit y Bloc con JSON"),
-          backgroundColor: Colors.deepPurple,
+          title: Text("Cubit y Bloc"),
+          backgroundColor: const Color.fromARGB(255, 43, 0, 255),
         ),
         body: Column(
           children: [
-            // ---------- Arriba (Cubit) ----------
             Expanded(
               child: BlocBuilder<CubitoCubit, CubitoState>(
                 builder: (context, state) {
@@ -46,8 +45,6 @@ class InicialPage extends StatelessWidget {
             ),
 
             Divider(),
-
-            // ---------- Abajo (Bloc) ----------
             Expanded(
               child: BlocBuilder<EstadosBloc, EstadosState>(
                 builder: (context, state) {
